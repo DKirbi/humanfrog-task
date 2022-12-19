@@ -13,6 +13,12 @@
 }
 @font-face {
   font-family: "Gotham";
+  src: url("/fonts/Gotham-Thin.woff2") format("woff2"), url("/fonts/Gotham-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gotham";
   src: url("/fonts/Gotham-Black.woff2") format("woff2"), url("/fonts/Gotham-Black.woff") format("woff");
   font-weight: 700;
   font-style: normal;
@@ -21,12 +27,38 @@ body {
   background-color: #101414;
   color: #ffffff;
   font-family: "Gotham";
+  padding: 37px 53px;
 }
 
 h1 {
   font-family: "Dala Floda Web";
 }
 
-p {
+p, a, h2, h3, h4 {
   font-family: "Gotham";
+  margin: 0;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: underline dashed;
+  text-underline-offset: 3px;
+  padding-top: 15px;
+}
+
+.section-heading {
+  font-weight: 100;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.more-link {
+  font-weight: 100;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.intro p {
+  padding-top: 40px;
+  padding-bottom: 65px;
 }
