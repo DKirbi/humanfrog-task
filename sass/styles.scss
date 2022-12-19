@@ -1,0 +1,51 @@
+@font-face {
+    font-family: 'Dala Floda Web';
+    src: url('/fonts/DalaFloda-Bold-Web.woff2') format('woff2'),
+         url('/fonts/DalaFloda-Bold-Web.woff') format('woff');
+    font-weight:  700;
+    font-style:   normal;
+    font-stretch: normal;
+  }
+@font-face {
+    font-family: 'Gotham';
+    src: url('/fonts/Gotham-Book.woff2') format('woff2'),
+         url('/fonts/Gotham-Book.woff') format('woff');
+    font-weight:  400;
+    font-style:   normal;
+  }
+@font-face {
+    font-family: 'Gotham';
+    src: url('/fonts/Gotham-Black.woff2') format('woff2'),
+         url('/fonts/Gotham-Black.woff') format('woff');
+    font-weight:  700;
+    font-style:   normal;
+  }
+
+$bodyTxt: 'Gotham';
+$headingTxt: 'Dala Floda Web';
+$fontNormal: '400';
+$fontBold: '700';
+$bgColor: #101414;
+$heroBg: #182222;
+$grayLines: #707070;
+$sectionHeadings: #DDDFDF;
+$white: #ffffff;
+$black: #000000;
+$footerBg: #1B2626;
+$activeColor: #00C9A5;
+$gradient: linear-gradient(108.05deg, #00C9A5 -1.97%, #000F59 119.17%);
+
+
+body {
+    background-color: $bgColor;
+    color: $white;
+    font-family: $bodyTxt;
+}
+
+h1 {
+    font-family: $headingTxt;
+}
+
+p {
+    font-family: $bodyTxt;
+}
