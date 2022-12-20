@@ -30,13 +30,13 @@
 
 $bodyTxt: 'Gotham';
 $headingTxt: 'Dala Floda Web';
-$fontNormal: '400';
-$fontThin: '100';
-$fontBold: '700';
+$fontNormal: 400;
+$fontThin: 100;
+$fontBold: 700;
 $bgColor: #101414;
 $heroBg: #182222;
-$grayLines: #707070;
-$sectionHeadings: #DDDFDF;
+$darkGray: #707070;
+$lightGray: #DDDFDF;
 $white: #ffffff;
 $black: #000000;
 $footerBg: #1B2626;
@@ -68,6 +68,36 @@ a {
     
 }
 
+.hero-section {
+    height: 370px;
+    background-color: $heroBg;
+    position: relative;
+    .backlink {
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        line-height: 8px;
+        padding-left: 18px;
+        font-size: 12px;
+        font-weight: $fontNormal;
+        &::before {
+            content: url(/images/back-arrow.svg);
+            padding-right: 10px;
+        }
+    }
+    h1 {
+        font-size: 70px;
+        margin-top: 140px;
+        margin-bottom: 0;
+    }
+    .hero-image {
+        height: 650px;
+        position: absolute;
+        right: 100px;
+        top: -150px;
+    }
+}
+
 .section-heading {
     font-weight: 100;
     font-size: 12px;
@@ -75,7 +105,6 @@ a {
 }
 
 .more-link {
-    
     font-weight: 100;
     font-size: 12px;
     text-transform: uppercase;
@@ -83,23 +112,93 @@ a {
 }
 
 
+header {
+    nav {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 33px;
+        .burgermenu {
+            button {
+                background-color: transparent;
+                border: none;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
 .intro {
     p {
         padding-top: 40px;
         padding-bottom: 65px;
+        width: 65%;
+        font-weight: $fontThin;
     }
 }
 
+
+
 .vacancies {
-    .vacancy {
-        .job-info {
-            h2 {
-                
-            }
+    .section-heading {
+        padding-bottom: 16px;
 
-            
-
-        }
-    
     }
+    .vacancy {
+        display: flex;
+        gap: 70px;
+        border-top: 1px solid $darkGray;
+        padding-top: 18px;
+        &:last-child {
+            border-bottom: 1px solid $darkGray;
+            padding-bottom: 40px;
+        }
+        .job-info {
+            width: 70%;
+            .job-namelink {
+                text-decoration: underline dashed;
+                text-underline-offset: 5px;
+                text-decoration-thickness: 1px;
+            }
+            .vacancy-description {
+                padding-top: 10px;
+                padding-bottom: 5px;
+                font-weight: $fontNormal;
+                font-size: 17px;
+                color: $lightGray;
+            }
+            .more-link {
+                padding-top: 10px;
+                &::before {
+                    content: url(/images/more-arrow.svg);
+                    padding-right: 10px;
+                }
+            }
+        }
+        .additional-info {
+            .info-wrapper {
+                padding-bottom: 15px;
+                .section-heading {
+                    padding-bottom: 3px;
+                }
+                p {
+                    font-size: 17px;
+                    font-weight: $fontNormal;
+                }
+            &:nth-child(2) {
+                p {
+                    display: flex;
+                    flex-direction: column;
+                }
+            }    
+            }
+            
+        }
+    }
+}
+
+.slider {
+    padding-top: 20px;
+    padding-bottom: 13px;
 }
