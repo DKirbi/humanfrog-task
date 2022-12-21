@@ -50,6 +50,7 @@ body {
 
 body, html {
   height: 100%;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -69,33 +70,72 @@ a {
 }
 
 .hero-section {
-  height: 370px;
+  height: 240px;
   background-color: #182222;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+@media (min-width: 768px) {
+  .hero-section {
+    height: 370px;
+  }
 }
 .hero-section .backlink {
   text-transform: uppercase;
   display: flex;
   align-items: center;
-  line-height: 8px;
+  line-height: 18px;
   padding-left: 18px;
   font-size: 12px;
   font-weight: 400;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  transition: color 0.15s linear;
 }
 .hero-section .backlink::before {
   content: url(/images/back-arrow.svg);
   padding-right: 10px;
+  margin-bottom: -2px;
+}
+.hero-section .backlink span {
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#00c9a5, #00c9a5);
+  background-size: 100% 100%, 0 100%;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.35s ease-out 0.1s, color 0.25s ease-out 0.05s;
+}
+.hero-section .backlink:hover span {
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#00c9a5, #00c9a5);
+  background-size: 100% 100%, 0 100%;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  color: #000;
+  background-size: 0 100%, 100% 100%;
 }
 .hero-section h1 {
-  font-size: 70px;
-  margin-top: 140px;
-  margin-bottom: 0;
+  font-size: 50px;
+  margin-top: 0px;
+  margin-bottom: 100px;
+}
+@media (min-width: 768px) {
+  .hero-section h1 {
+    font-size: 70px;
+    margin-bottom: 150px;
+  }
 }
 .hero-section .hero-image {
-  height: 650px;
+  height: 320px;
   position: absolute;
-  right: 100px;
-  top: -150px;
+  right: -100px;
+  top: -60px;
+}
+@media (min-width: 768px) {
+  .hero-section .hero-image {
+    height: 650px;
+    right: 100px;
+    top: -150px;
+  }
 }
 
 .section-heading {
@@ -108,12 +148,33 @@ a {
   font-weight: 100;
   font-size: 12px;
   text-transform: uppercase;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  transition: color 0.15s linear;
+}
+.more-link span {
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#00c9a5, #00c9a5);
+  background-size: 100% 100%, 0 100%;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.35s ease-out 0.1s, color 0.25s ease-out 0.05s;
+}
+.more-link:hover span {
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#00c9a5, #00c9a5);
+  background-size: 100% 100%, 0 100%;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  color: #000;
+  background-size: 0 100%, 100% 100%;
 }
 
 header nav {
   display: flex;
   justify-content: space-between;
   padding-bottom: 33px;
+}
+header nav .burgermenu {
+  display: flex;
+  align-items: center;
 }
 header nav .burgermenu button {
   background-color: transparent;
@@ -166,9 +227,28 @@ header nav .burgermenu button:hover {
   }
 }
 .vacancies .vacancy .job-info .job-namelink {
+  display: flex;
   text-decoration: underline dashed;
   text-underline-offset: 5px;
   text-decoration-thickness: 1px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  transition: color 0.15s linear;
+  padding-top: 0;
+}
+.vacancies .vacancy .job-info .job-namelink h2 {
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#00c9a5, #00c9a5);
+  background-size: 100% 100%, 0 100%;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.35s ease-out 0.1s, color 0.25s ease-out 0.05s;
+}
+.vacancies .vacancy .job-info .job-namelink:hover h2 {
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#00c9a5, #00c9a5);
+  background-size: 100% 100%, 0 100%;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  color: #000;
+  background-size: 0 100%, 100% 100%;
 }
 .vacancies .vacancy .job-info .vacancy-description {
   padding-top: 10px;
@@ -192,6 +272,7 @@ header nav .burgermenu button:hover {
 @media (min-width: 768px) {
   .vacancies .vacancy .additional-info {
     width: calc(30% - 35px);
+    padding-top: 0;
   }
 }
 .vacancies .vacancy .additional-info .info-wrapper {
@@ -216,6 +297,19 @@ header nav .burgermenu button:hover {
 .slider .section-heading {
   padding-bottom: 13px;
 }
+.slider .carousel .slick-next, .slider .carousel .slick-prev {
+  display: none !important;
+}
+@media (min-width: 768px) {
+  .slider .carousel .slick-next {
+    display: block !important;
+    right: -30px;
+  }
+  .slider .carousel .slick-prev {
+    display: block !important;
+    left: -30px;
+  }
+}
 .slider .carousel .slick-dots .slick-active button:before {
   color: white;
 }
@@ -236,29 +330,48 @@ header nav .burgermenu button:hover {
   color: #6c6c6c;
 }
 .slider .slide {
-  height: 382px;
   background-color: #1B2626;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 380px;
+}
+@media (min-width: 768px) {
+  .slider .slide {
+    flex-direction: row-reverse;
+  }
 }
 .slider .slide .person {
-  position: absolute;
-  right: 0;
-  bottom: 0;
+  display: none;
+}
+@media (min-width: 768px) {
+  .slider .slide .person {
+    display: block;
+  }
 }
 .slider .slide .testimonial {
   display: flex;
   align-items: flex-start;
-  padding: 42px 0 12px 55px;
+  padding: 22px 0 12px 12px;
+  max-width: 90%;
+}
+@media (min-width: 768px) {
+  .slider .slide .testimonial {
+    flex-direction: row;
+    max-width: 60%;
+    padding: 42px 0 12px 55px;
+  }
+}
+.slider .slide .testimonial .testimonial-text {
+  padding: 0 12px;
+  width: 100%;
 }
 .slider .slide .testimonial .testimonial-text p {
-  max-width: 480px;
-  padding: 0 22px;
   font-weight: 100;
   line-height: 150%;
   padding-bottom: 12px;
 }
 .slider .slide .testimonial .testimonial-text .author {
-  padding-left: 22px;
   display: flex;
   line-height: 130%;
 }
@@ -285,8 +398,13 @@ header nav .burgermenu button:hover {
 .cta .cta-heading {
   display: flex;
   flex-direction: column;
-  font-size: 70px;
   margin-bottom: 0;
+  font-size: 55px;
+}
+@media (min-width: 768px) {
+  .cta .cta-heading {
+    font-size: 70px;
+  }
 }
 .cta hr {
   border: 0.5px solid #34EAC9;
@@ -307,6 +425,9 @@ header nav .burgermenu button:hover {
   text-transform: uppercase;
   font-size: 12px;
   font-weight: 400;
+}
+.cta .cta-button:hover {
+  cursor: pointer;
 }
 
 .content {
@@ -396,12 +517,31 @@ footer .column-wrapper .left-column .links-wrapper .address {
     width: calc(50% - 35px);
   }
 }
-footer .column-wrapper .left-column .links-wrapper .address .phone {
+footer .column-wrapper .left-column .links-wrapper .address .phone, footer .column-wrapper .left-column .links-wrapper .address .email {
   padding-bottom: 5px;
   font-weight: 100;
 }
-footer .column-wrapper .left-column .links-wrapper .address .email {
-  font-weight: 100;
+footer .column-wrapper .left-column .links-wrapper .address .phone a, footer .column-wrapper .left-column .links-wrapper .address .email a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  transition: color 0.15s linear;
+}
+footer .column-wrapper .left-column .links-wrapper .address .phone a span, footer .column-wrapper .left-column .links-wrapper .address .email a span {
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#00c9a5, #00c9a5);
+  background-size: 100% 100%, 0 100%;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.35s ease-out 0.1s, color 0.25s ease-out 0.05s;
+}
+footer .column-wrapper .left-column .links-wrapper .address .phone a:hover span, footer .column-wrapper .left-column .links-wrapper .address .email a:hover span {
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#00c9a5, #00c9a5);
+  background-size: 100% 100%, 0 100%;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  color: #000;
+  background-size: 0 100%, 100% 100%;
+}
+footer .column-wrapper .left-column .links-wrapper .address .phone .email, footer .column-wrapper .left-column .links-wrapper .address .email .email {
+  padding-bottom: 0;
 }
 footer .column-wrapper .left-column .links-wrapper .address .address-line {
   display: flex;
@@ -440,6 +580,7 @@ footer .column-wrapper .right-column {
 @media (min-width: 768px) {
   footer .column-wrapper .right-column {
     width: calc(30% - 35px);
+    padding-top: 0;
   }
 }
 footer .column-wrapper .right-column .follow-us {
