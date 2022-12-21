@@ -11,7 +11,7 @@ body {
     display: flex;
     flex-direction: column;
     @media (min-width:768px) {
-        padding: 37px 53px;
+        padding: 37px 53px 0 53px;
     }
 }
 
@@ -26,6 +26,7 @@ body {
 body, html {
     height: 100%;
     overflow-x: hidden;
+    margin: 0;
 }
 
 h1 {
