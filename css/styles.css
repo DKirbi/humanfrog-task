@@ -85,6 +85,7 @@ a {
 .hero-section .backlink {
   text-transform: uppercase;
   display: flex;
+  width: fit-content;
   align-items: center;
   line-height: 18px;
   padding-left: 18px;
@@ -110,19 +111,31 @@ a {
   background-size: 100% 100%, 0 100%;
   background-position: 100% 100%, 0 100%;
   background-repeat: no-repeat;
-  color: #000;
+  color: #000000;
   background-size: 0 100%, 100% 100%;
 }
-.hero-section h1 {
-  font-size: 50px;
+.hero-section .hero-text {
   margin-top: 0px;
   margin-bottom: 100px;
+  z-index: 2;
 }
 @media (min-width: 768px) {
-  .hero-section h1 {
-    font-size: 70px;
-    margin-bottom: 150px;
+  .hero-section .hero-text {
+    margin-bottom: 120px;
   }
+}
+.hero-section .hero-text h1 {
+  font-size: 50px;
+  margin: 0;
+}
+@media (min-width: 768px) {
+  .hero-section .hero-text h1 {
+    font-size: 70px;
+    line-height: 90%;
+  }
+}
+.hero-section .hero-text .darken {
+  color: #000000;
 }
 .hero-section .hero-image {
   height: 320px;
@@ -163,7 +176,7 @@ a {
   background-size: 100% 100%, 0 100%;
   background-position: 100% 100%, 0 100%;
   background-repeat: no-repeat;
-  color: #000;
+  color: #000000;
   background-size: 0 100%, 100% 100%;
 }
 
@@ -191,10 +204,26 @@ header nav .burgermenu button:hover {
   line-height: 130%;
   font-weight: 400;
   width: 100%;
+  position: relative;
 }
 @media (min-width: 768px) {
   .intro p {
     width: 65%;
+  }
+}
+.intro p:before {
+  content: "";
+  border: 0.5px solid #707070;
+  position: absolute;
+  left: -105%;
+  width: 100%;
+  height: 0px;
+  top: 55px;
+  bottom: 0;
+}
+@media (max-width: 971px) {
+  .intro p:before {
+    display: none;
   }
 }
 
@@ -247,7 +276,7 @@ header nav .burgermenu button:hover {
   background-size: 100% 100%, 0 100%;
   background-position: 100% 100%, 0 100%;
   background-repeat: no-repeat;
-  color: #000;
+  color: #000000;
   background-size: 0 100%, 100% 100%;
 }
 .vacancies .vacancy .job-info .vacancy-description {
@@ -288,6 +317,80 @@ header nav .burgermenu button:hover {
 .vacancies .vacancy .additional-info .info-wrapper:nth-child(2) p {
   display: flex;
   flex-direction: column;
+}
+.vacancies .job {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+@media (min-width: 768px) {
+  .vacancies .job {
+    flex-direction: row;
+    gap: 70px;
+  }
+}
+.vacancies .job .job-info {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .vacancies .job .job-info {
+    width: calc(70% - 35px);
+  }
+}
+.vacancies .job .job-info .job-intro {
+  padding-bottom: 35px;
+}
+.vacancies .job .job-info .job-intro p {
+  font-weight: 100;
+}
+.vacancies .job .job-info .job-intro p:first-child {
+  padding-bottom: 10px;
+}
+.vacancies .job .job-info .expectations h2,
+.vacancies .job .job-info .offer h2 {
+  font-weight: 700;
+  font-size: 22px;
+  display: flex;
+  flex-direction: column;
+}
+.vacancies .job .job-info .expectations h2:after,
+.vacancies .job .job-info .offer h2:after {
+  content: "";
+  border: 0.5px solid #34EAC9;
+  width: 110px;
+  margin-top: 22px;
+  margin-bottom: 12px;
+}
+.vacancies .job .job-info .expectations ul,
+.vacancies .job .job-info .offer ul {
+  padding-left: 10px;
+}
+.vacancies .job .job-info .expectations ul li,
+.vacancies .job .job-info .offer ul li {
+  padding-bottom: 8px;
+  font-weight: 100;
+}
+.vacancies .job .additional-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .vacancies .job .additional-info {
+    width: calc(30% - 35px);
+  }
+}
+.vacancies .job .additional-info:before {
+  content: "";
+  border: 0.5px solid #34EAC9;
+  width: 110px;
+  margin-bottom: 12px;
+}
+.vacancies .job .additional-info .info-wrapper {
+  padding-bottom: 16px;
+}
+.vacancies .job .additional-info .info-wrapper .section-heading {
+  padding-bottom: 0;
 }
 
 .slider {
@@ -394,6 +497,7 @@ header nav .burgermenu button:hover {
   margin-left: calc(50% - 50vw);
   padding: 38px 0 70px 0;
   margin-bottom: 125px;
+  margin-top: 90px;
 }
 .cta .cta-heading {
   display: flex;
@@ -406,10 +510,10 @@ header nav .burgermenu button:hover {
     font-size: 70px;
   }
 }
-.cta hr {
+.cta .cta-heading:after {
+  content: "";
   border: 0.5px solid #34EAC9;
   width: 110px;
-  margin: 0;
   margin-top: 23px;
   margin-bottom: 12px;
 }
@@ -537,7 +641,7 @@ footer .column-wrapper .left-column .links-wrapper .address .phone a:hover span,
   background-size: 100% 100%, 0 100%;
   background-position: 100% 100%, 0 100%;
   background-repeat: no-repeat;
-  color: #000;
+  color: #000000;
   background-size: 0 100%, 100% 100%;
 }
 footer .column-wrapper .left-column .links-wrapper .address .phone .email, footer .column-wrapper .left-column .links-wrapper .address .email .email {
@@ -568,10 +672,26 @@ footer .column-wrapper .left-column .links-wrapper .sitemap {
   }
 }
 footer .column-wrapper .left-column .links-wrapper .sitemap li {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  transition: color 0.15s linear;
   padding-bottom: 10px;
 }
 footer .column-wrapper .left-column .links-wrapper .sitemap li a {
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#00c9a5, #00c9a5);
+  background-size: 100% 100%, 0 100%;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.35s ease-out 0.1s, color 0.25s ease-out 0.05s;
   font-size: 15px;
+  padding-top: 0;
+}
+footer .column-wrapper .left-column .links-wrapper .sitemap li:hover a {
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#00c9a5, #00c9a5);
+  background-size: 100% 100%, 0 100%;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  color: #000000;
+  background-size: 0 100%, 100% 100%;
 }
 footer .column-wrapper .right-column {
   width: 100%;
@@ -639,4 +759,8 @@ footer .impressum li {
   footer .impressum li:last-child::after {
     display: none;
   }
+}
+footer .impressum li a {
+  padding-top: 0;
+  text-decoration: none;
 }

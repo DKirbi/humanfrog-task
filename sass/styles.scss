@@ -1,50 +1,5 @@
-@font-face {
-    font-family: 'Dala Floda Web';
-    src: url('/fonts/DalaFloda-Bold-Web.woff2') format('woff2'),
-         url('/fonts/DalaFloda-Bold-Web.woff') format('woff');
-    font-weight:  700;
-    font-style:   normal;
-    font-stretch: normal;
-  }
-@font-face {
-    font-family: 'Gotham';
-    src: url('/fonts/Gotham-Book.woff2') format('woff2'),
-         url('/fonts/Gotham-Book.woff') format('woff');
-    font-weight:  400;
-    font-style:   normal;
-  }
-@font-face {
-    font-family: 'Gotham';
-    src: url('/fonts/Gotham-Thin.woff2') format('woff2'),
-         url('/fonts/Gotham-Thin.woff') format('woff');
-    font-weight:  100;
-    font-style:   normal;
-  }
-@font-face {
-    font-family: 'Gotham';
-    src: url('/fonts/Gotham-Bold.woff2') format('woff2'),
-         url('/fonts/Gotham-Bold.woff') format('woff');
-    font-weight:  700;
-    font-style:   normal;
-  }
-
-$Gotham: 'Gotham';
-$headingTxt: 'Dala Floda Web';
-$fontNormal: 400;
-$fontThin: 100;
-$fontBold: 700;
-$bgColor: #101414;
-$heroBg: #182222;
-$darkGray: #707070;
-$lightGray: #DDDFDF;
-$white: #ffffff;
-$black: #000000;
-$footerBg: #1B2626;
-$activeColor: #00C9A5;
-$linkMint: #34EAC9;
-$slickInactive: #6c6c6c;
-$gap: 70px;
-$gradient: linear-gradient(108.05deg, #00C9A5 -1.97%, #000F59 119.17%);
+@import 'typography';
+@import 'variables';
 
 
 body {
@@ -59,8 +14,6 @@ body {
         padding: 37px 53px;
     }
 }
-
-
 
 .container {
         padding: 0 16px;
@@ -108,6 +61,7 @@ a {
     .backlink {
         text-transform: uppercase;
         display: flex;
+        width: fit-content;
         align-items: center;
         line-height: 18px;
         padding-left: 18px;
@@ -133,24 +87,34 @@ a {
                 background-size: 100% 100%,0 100%;
                 background-position: 100% 100%,0 100%;
                 background-repeat: no-repeat;
-                color: #000;
+                color: $black;
                 background-size: 0 100%,100% 100%;
             }
         }
     }
     
 
-
-    h1 {
-        font-size: 50px;
+    .hero-text {
         margin-top: 0px;
         margin-bottom: 100px;
+        z-index: 2;
         @media (min-width:768px) {
-            font-size: 70px;
-            margin-bottom: 150px;
+            margin-bottom: 120px;
 
         }
+        h1 {
+            font-size: 50px;
+            margin: 0;
+            @media (min-width:768px) {
+                font-size: 70px;
+                line-height: 90%;    
+            }
+        }
+        .darken {
+            color: $black;
+        }
     }
+    
     .hero-image {
         height: 320px;
         position: absolute;
@@ -189,7 +153,7 @@ a {
             background-size: 100% 100%,0 100%;
             background-position: 100% 100%,0 100%;
             background-repeat: no-repeat;
-            color: #000;
+            color: $black;
             background-size: 0 100%,100% 100%;
         }
     }
@@ -223,11 +187,27 @@ header {
         line-height: 130%;
         font-weight: $fontNormal;
         width: 100%;
+        position: relative;
         @media (min-width:768px) {
             width: 65%;
 
         }
+        &:before {
+            content: "";
+            border: 0.5px solid #707070;
+            position: absolute;
+            left: -105%;
+            width: 100%;
+            height: 0px;
+            top: 55px;
+            bottom: 0;
+            @media (max-width: 971px) {
+                display: none;
+            }
+            
+        }
     }
+
 }
 
 
@@ -277,7 +257,7 @@ header {
                         background-size: 100% 100%,0 100%;
                         background-position: 100% 100%,0 100%;
                         background-repeat: no-repeat;
-                        color: #000;
+                        color: $black;
                         background-size: 0 100%,100% 100%;
                     }
                 }
@@ -322,6 +302,76 @@ header {
             }    
             }
             
+        }
+    }
+    .job {
+        display: flex;
+        flex-direction: column;
+        gap: calc($gap/2);
+        @media (min-width:768px) {
+            flex-direction: row;
+            gap: $gap;
+            
+        }
+        .job-info {
+            width: 100%;
+            @media (min-width: 768px) {
+                width: calc(70% - ($gap/2));
+            }
+            .job-intro {
+                padding-bottom: 35px;
+                p{
+                    font-weight: $fontThin;
+                }
+                p:first-child {
+                    padding-bottom: 10px;
+                }
+            }
+            .expectations,
+            .offer {
+                h2 {
+                    font-weight: $fontBold;
+                    font-size: 22px;
+                    display: flex;
+                    flex-direction: column;
+                    &:after {
+                        content: '';
+                        border: 0.5px solid $linkMint;
+                        width: 110px;
+                        margin-top: 22px;
+                        margin-bottom: 12px;
+                    }
+                }
+                ul {
+                    padding-left: 10px;
+                    li {
+                        padding-bottom: 8px;
+                        font-weight: $fontThin;
+                    }
+                }
+            }
+
+        }
+        .additional-info {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            @media (min-width: 768px) {
+                width: calc(30% - ($gap/2));
+                
+            }
+            &:before {
+                content: '';
+                border: 0.5px solid $linkMint;
+                width: 110px;
+                margin-bottom: 12px;
+            }
+            .info-wrapper{
+                padding-bottom: 16px;
+                .section-heading {
+                    padding-bottom: 0;   
+                }
+            }
         }
     }
 }
@@ -444,6 +494,7 @@ header {
     margin-left: calc(50% - 50vw);
     padding: 38px 0 70px 0;
     margin-bottom: 125px;
+    margin-top: 90px;
     .cta-heading {
         display: flex;
         flex-direction: column;
@@ -453,15 +504,15 @@ header {
             font-size: 70px;
             
         }
+        &:after {
+            content: '';
+            border: 0.5px solid $linkMint;
+            width: 110px;
+            margin-top: 23px;
+            margin-bottom: 12px;
+        }
     }
-    hr {
-        border: 0.5px solid $linkMint;
-        width: 110px;
-        margin: 0;
-        margin-top: 23px;
-        margin-bottom: 12px;
-
-    }
+    
 
     .cta-message {
         padding-bottom: 13px;
@@ -588,7 +639,7 @@ footer {
                                 background-size: 100% 100%,0 100%;
                                 background-position: 100% 100%,0 100%;
                                 background-repeat: no-repeat;
-                                color: #000;
+                                color: $black;
                                 background-size: 0 100%,100% 100%;
                             }
                         }
@@ -624,10 +675,28 @@ footer {
                     width: calc(50% - ($gap/2));
                  }
                  li {
-                     padding-bottom: 10px;
-                     a {
-                         font-size: 15px
+                    -webkit-tap-highlight-color: rgba(0,0,0,0);
+                    transition: color .15s linear;
+                    padding-bottom: 10px;
+                    a {  
+                        background-image: linear-gradient(transparent,transparent),linear-gradient(#00c9a5,#00c9a5);
+                        background-size: 100% 100%,0 100%;
+                        background-position: 100% 100%,0 100%;
+                        background-repeat: no-repeat;
+                        transition: background-size .35s ease-out .1s, color .25s ease-out .05s;
+                        font-size: 15px;
+                        padding-top: 0;
                      }
+                     &:hover {
+                        a {
+                            background-image: linear-gradient(transparent,transparent),linear-gradient(#00c9a5,#00c9a5);
+                            background-size: 100% 100%,0 100%;
+                            background-position: 100% 100%,0 100%;
+                            background-repeat: no-repeat;
+                            color: $black;
+                            background-size: 0 100%,100% 100%;
+                        }
+                    }
                  }
              } 
              }
@@ -699,9 +768,11 @@ footer {
                         display: none;
                     }
                 
+                }
             }
-                
-
+            a {
+                padding-top: 0;
+                text-decoration: none;
             }
         }
     } 
