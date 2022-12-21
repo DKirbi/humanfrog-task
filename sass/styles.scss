@@ -55,7 +55,8 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    @media (min-width: 768px) {
+    
+    @media (min-width: 960px) {
         height: 370px;
     }
     
@@ -121,7 +122,12 @@ a {
         position: absolute;
         right: -100px;
         top: -60px;
-        @media (min-width: 768px) {
+        @media (min-width: 500px) {
+            height: 360px;
+            right: 0px;
+            top: -90px;
+        } 
+        @media (min-width: 960px) {
             height: 650px;
             right: 100px;
             top: -150px;

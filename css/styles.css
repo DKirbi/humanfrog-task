@@ -78,7 +78,7 @@ a {
   flex-direction: column;
   justify-content: space-between;
 }
-@media (min-width: 768px) {
+@media (min-width: 960px) {
   .hero-section {
     height: 370px;
   }
@@ -144,7 +144,14 @@ a {
   right: -100px;
   top: -60px;
 }
-@media (min-width: 768px) {
+@media (min-width: 500px) {
+  .hero-section .hero-image {
+    height: 360px;
+    right: 0px;
+    top: -90px;
+  }
+}
+@media (min-width: 960px) {
   .hero-section .hero-image {
     height: 650px;
     right: 100px;
