@@ -51,15 +51,23 @@ body {
     background-color: $bgColor;
     color: $white;
     font-family: $Gotham;
-    padding: 37px 53px;
+    padding: 20px 0;
 
     display: flex;
     flex-direction: column;
+    @media (min-width:768px) {
+        padding: 37px 53px;
+    }
 }
 
+
+
 .container {
-    max-width: 860px;
-    margin: auto;
+        padding: 0 16px;
+    @media (min-width: 1024px) {
+        max-width: 860px;
+        margin: auto;
+    }
 }
 
 body, html {
@@ -150,8 +158,12 @@ header {
         padding-bottom: 65px;
         font-size: 22px;
         line-height: 130%;
-        width: 65%;
         font-weight: $fontNormal;
+        width: 100%;
+        @media (min-width:768px) {
+            width: 65%;
+
+        }
     }
 }
 
@@ -164,15 +176,23 @@ header {
     }
     .vacancy {
         display: flex;
-        gap: $gap;
+        flex-direction: column;
         border-top: 1px solid $darkGray;
         padding-top: 18px;
+        @media (min-width: 768px) {
+            display: flex;
+            flex-direction: row;
+            gap: $gap;
+        } 
         &:last-child {
             border-bottom: 1px solid $darkGray;
             padding-bottom: 40px;
         }
         .job-info {
-            width: calc(70% - ($gap/2));
+            width: 100%;
+            @media (min-width: 768px) {
+                width: calc(70% - ($gap/2));
+            }
             .job-namelink {
                 text-decoration: underline dashed;
                 text-underline-offset: 5px;
@@ -195,7 +215,11 @@ header {
             }
         }
         .additional-info {
-            width: calc(30% - ($gap/2));
+            width: 100%;
+            padding-top: 25px;
+            @media (min-width: 768px) {
+                width: calc(30% - ($gap/2));
+            }
             .info-wrapper {
                 padding-bottom: 15px;
                 .section-heading {
@@ -361,12 +385,21 @@ footer {
     
      .column-wrapper {
         display: flex;
-        justify-content: space-between;
-        gap: $gap;
+        flex-direction: column;
+         @media (min-width: 768px) {
+            flex-direction: row;
+            justify-content: space-between;
+            gap: $gap;
+
+        }
          .left-column {
          display: flex;
          flex-direction: column;
-         width: calc(70% - ($gap/2));
+         width: 100%;
+         @media (min-width: 768px) {
+            width: calc(70% - ($gap/2));
+
+         }
      
              .newsletter-signup {
              
@@ -401,12 +434,23 @@ footer {
              }
              .links-wrapper {
              display: flex;
+             flex-direction: column;
              justify-content: space-between;
-             gap: $gap;
+             gap: calc($gap - 40px);
+             @media (min-width:768px) {
+                flex-direction: row;
+                justify-content: space-between;
+                gap: $gap;
+             }
              .address {
-                 width: calc(50% - ($gap/2));
+                
+                 width: 100%;
                  border-top: 1px solid $black;
                  padding-top: 8px;
+                 @media (min-width:768px) {
+                    width: calc(50% - ($gap/2));
+
+                }
                  .phone {
                     padding-bottom: 5px;
                     font-weight: $fontThin;
@@ -429,10 +473,13 @@ footer {
              .sitemap {
                  list-style: none;
                  padding-left: 0;
-                 width: calc(50% - ($gap/2));
+                 width: 100%;
                  border-top: 1px solid $black;
                  padding-top: 8px;
                  margin: 0;
+                 @media (min-width: 768px) {
+                    width: calc(50% - ($gap/2));
+                 }
                  li {
                      padding-bottom: 10px;
                      a {
@@ -445,7 +492,11 @@ footer {
      
          }   
          .right-column {
-             width: calc(30% - ($gap/2));
+            width: 100%;
+            padding-top: 25px;
+             @media (min-width:768px) {
+                width: calc(30% - ($gap/2));
+             }
              .follow-us {
                  display: flex;
                  flex-direction: column;
@@ -482,19 +533,29 @@ footer {
         list-style-type: none;
         padding-left: 0;
         display: flex;
+        flex-direction: column;
         border-top: 1px solid $black;
         padding-top: 8px;
+        @media (min-width:768px) {
+            flex-direction: row;
+            
+        }
         li {
             font-size: 13px;
             color: $lightGray;
-            &::after {
-                content: '\00b7';
-                padding: 15px;
-            }
-            &:last-child  {
+            padding-bottom: 10px;
+            @media (min-width:768px) {
+                padding-bottom: 0;
                 &::after {
-                    display: none;
+                    content: '\00b7';
+                    padding: 15px;
                 }
+                &:last-child  {
+                    &::after {
+                        display: none;
+                    }
+                
+            }
                 
 
             }
